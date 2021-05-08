@@ -1,0 +1,11 @@
+{% extends "podcasts/base.html" %}
+{% block body %}
+    <h1>{{ episode }}</h1>
+    <h2>Show Notes</h2>
+    {{ episode.show_notes }}
+    <h2>Play Episode</h2>
+    <audio controls>
+        <source src="{{ episode.media.url }}" type="audio/mpeg" title="{{ episode }} audio">
+        Your browser does not support the audio element.
+    </audio>
+{% endblock %}

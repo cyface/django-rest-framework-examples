@@ -20,7 +20,7 @@ class Podcast(Model):
     title = CharField(max_length=500)
     description = TextField()
     cover_art = ImageField()
-    uuid = UUIDField(default=uuid4, editable=False)
+    uuid = UUIDField(default=uuid4, editable=False, db_index=True)
 
     # episodes - manager auto-created by Django with list of episodes associated with this Podcast
     # people - manager auto-created by Django with list of people associated with this Podcast
@@ -43,6 +43,9 @@ class Episode(Model):
 
     def __str__(self):
         return f"{self.podcast.title} - Episode {self.sequence}"
+
+    class Meta:
+        ordering = ["sequence"]
 
 
 class Role(Model):
@@ -67,6 +70,9 @@ class Person(Model):
 
 
 class PodcastPersonRole(Model):
-    podcast = ForeignKey(Podcast, related_name="podcast", on_delete=DO_NOTHING)
-    person = ForeignKey(Person, related_name="person", on_delete=DO_NOTHING)
+    podcast = ForeignKey(Podcast, related_name="people", on_delete=DO_NOTHING)
+    person = ForeignKey(Person, related_name="podcasts", on_delete=DO_NOTHING)
     role = ForeignKey(Role, related_name="role", on_delete=DO_NOTHING)
+
+    def __str__(self):
+        return f"{self.person} ({self.role.name})"
