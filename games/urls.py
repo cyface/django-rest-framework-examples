@@ -1,20 +1,20 @@
-# URLs for Podcasts
+# URLs for Games
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import include, path
 from django.views.generic import TemplateView
 from rest_framework import routers
 
-from podcasts.views.rest_api_views import PodcastViewSet
+from games.views import GameViewSet
 
-app_name = "podcasts"
+app_name = "games"
 
-podcasts_api_router = routers.DefaultRouter()
-podcasts_api_router.register(r"podcasts", PodcastViewSet)
+games_api_router = routers.DefaultRouter()
+games_api_router.register("", GameViewSet)
 
 urlpatterns = [
-                  path("", TemplateView.as_view(template_name="podcasts/home.html")),
-                  path("api/", include(podcasts_api_router.urls)),
+                  path("", TemplateView.as_view(template_name="games/home.html")),
+                  path("api/", include(games_api_router.urls)),
                   # Automatically Created API URLs from Router
                   # api/  'api-root' - shows list of apis available
                   # api/podcasts/  'podcast-list' - shows list of all podcasts

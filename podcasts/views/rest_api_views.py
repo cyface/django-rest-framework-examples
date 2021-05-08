@@ -20,7 +20,7 @@ class PodcastViewSet(ReadOnlyModelViewSet):
     """
     queryset = Podcast.objects.all()
     serializer_class = PodcastSerializer
-    throttle_scope = "podcast_detail"
+    throttle_scope = "podcasts"
 
     def retrieve(self, request, *args, pk=None):
         queryset = self.get_queryset()
