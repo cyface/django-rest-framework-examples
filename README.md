@@ -12,6 +12,7 @@ This project includes a few apps implemented in different ways:
 
 * `pip install -r requirements.txt`
 * `python manage.py migrate`
+* `python manage.py loaddata games/fixtures/initial_data.json`
 * `python manage.py loaddata podcasts/fixtures/initial_data.json`
 * `python manage.py runserver`
 
