@@ -10,14 +10,14 @@ from games.views import GameViewSet
 app_name = "games"
 
 games_api_router = routers.DefaultRouter()
-games_api_router.register("", GameViewSet)
+games_api_router.register("games", GameViewSet)
 
 urlpatterns = [
                   path("", TemplateView.as_view(template_name="games/home.html")),
                   path("api/", include(games_api_router.urls)),
                   # Automatically Created API URLs from Router
                   # api/  'api-root' - shows list of apis available
-                  # api/podcasts/  'podcast-list' - shows list of all podcasts
-                  # api/podcasts/<uuid> 'podcast-detail' shows the detail of a single podcast based on its uuid
+                  # api/games/  'game-list' - shows list of all podcasts
+                  # api/games/<id> 'game-detail' shows the detail of a single game based on its id
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -10,7 +10,7 @@ from podcasts.views.rest_api_views import PodcastViewSet
 app_name = "podcasts"
 
 podcasts_api_router = routers.DefaultRouter()
-podcasts_api_router.register(r"podcasts", PodcastViewSet)
+podcasts_api_router.register("podcasts", PodcastViewSet)
 
 urlpatterns = [
                   path("", TemplateView.as_view(template_name="podcasts/home.html")),
