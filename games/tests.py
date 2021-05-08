@@ -1,4 +1,4 @@
-# Django tests for Games project
+# Django tests for Games app
 
 from django.test import TestCase
 from rest_framework.reverse import reverse
@@ -6,7 +6,7 @@ from rest_framework.reverse import reverse
 from games.models import Game, GamePublisher
 
 
-class TestGamesModels(TestCase):
+class TestGames(TestCase):
     """
     Tests for Games Models
     """

@@ -26,7 +26,10 @@ class Podcast(Model):
     # people - manager auto-created by Django with list of people associated with this Podcast
 
     def api_detail_url(self):
-        return reverse("podcast-detail", args=[self.uuid])
+        return reverse("podcasts:podcast-detail", args=[self.uuid])
+
+    def episode_count(self):
+        return self.episodes.all().count()
 
     def __str__(self):
         return self.title
