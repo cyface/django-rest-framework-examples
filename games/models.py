@@ -12,7 +12,9 @@ class GamePublisher(Model):
     # 'games' is available as an auto-created manager
 
     def average_game_rating(self):
-        return self.games.all().aggregate(Avg('rating')).get('rating__avg')
+        return self.games.all().\
+            aggregate(Avg('rating')).\
+            get('rating__avg')
 
 
 class Game(Model):
@@ -24,6 +26,3 @@ class Game(Model):
     notes = TextField()
     publisher = ForeignKey(GamePublisher, related_name="games", on_delete=CASCADE)
     rating = IntegerField()
-
-    def publisher_name(self):
-        return self.publisher.name
