@@ -7,7 +7,7 @@ Specifically using as much of the automatic and generic views as possible.
 
 This project includes a few apps implemented in different ways:
 
-* `Games` is a simple bare-bones implementation that demonstrates the minimal DRF implmentation.
+* `Games` is a simple bare-bones app that demonstrates the minimal DRF implmentation.
 * `Podcasts` is a more full featured app with throttling, relations, and custom methods.
 
 ## How to get this running
