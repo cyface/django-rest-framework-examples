@@ -2,7 +2,6 @@
 
 from rest_framework.serializers import ModelSerializer
 from rest_framework.viewsets import ReadOnlyModelViewSet
-
 from games.models import Game
 
 
