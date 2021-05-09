@@ -18,4 +18,4 @@ This project includes a few apps implemented in different ways:
 * `python manage.py loaddata podcasts/fixtures/initial_data.json`
 * `python manage.py runserver`
 
-Browse to : http://localhost:8000/api/podcasts/
+Browse to : http://localhost:8000/podcasts/api/ or http://localhost:8000/games/api/ 
