@@ -5,20 +5,12 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
     ]
 
     operations = [
-        migrations.CreateModel(
-            name='GamePublisher',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=500)),
-            ],
-        ),
         migrations.CreateModel(
             name='Game',
             fields=[
@@ -27,7 +19,6 @@ class Migration(migrations.Migration):
                 ('description', models.TextField()),
                 ('notes', models.TextField()),
                 ('rating', models.IntegerField()),
-                ('publisher', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='games', to='games.gamepublisher')),
             ],
         ),
     ]

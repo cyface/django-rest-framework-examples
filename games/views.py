@@ -8,7 +8,6 @@ from games.models import Game
 
 class GameSerializer(ModelSerializer):
     class Meta:
-        depth = 1  # This brings in the Publisher info
         model = Game
         fields = '__all__'
 
