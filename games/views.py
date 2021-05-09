@@ -7,6 +7,9 @@ from games.models import Game
 
 
 class GameSerializer(ModelSerializer):
+    """
+    Class that converts models to JSON
+    """
     class Meta:
         model = Game
         fields = '__all__'
