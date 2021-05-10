@@ -1,5 +1,5 @@
 # Django REST Framework Examples
-Simple Django REST Framework Examples
+Django REST Framework Examples
 
 This repository is a companion to [my "The Simplest Django REST Framework Example" article](https://timlwhite.medium.com/the-simplest-django-rest-framework-example-c67cecc88400).
 
