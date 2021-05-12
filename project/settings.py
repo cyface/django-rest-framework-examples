@@ -14,9 +14,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-^*rgod&!_8)_+yrgl5)h@7#in%&wxm=+mmy7@9sq3xi0jppodn"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 
 # Application definition
 
@@ -114,14 +114,20 @@ STATIC_URL = "/static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+#  ## Changes from Default Django Config Below Here
+
 # Uploaded Media
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
 # Django REST Framework
 REST_FRAMEWORK = {
-    "DEFAULT_THROTTLE_CLASSES": ["rest_framework.throttling.ScopedRateThrottle"],
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.ScopedRateThrottle',
+        'rest_framework.throttling.AnonRateThrottle'
+    ],
     "DEFAULT_THROTTLE_RATES": {
-        "podcasts": "5/min",
+        "anon": "10/min",
+        "podcasts": "2/min",
     },
 }

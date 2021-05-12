@@ -8,10 +8,16 @@ from rest_framework.viewsets import ReadOnlyModelViewSet
 from podcasts.models import Podcast
 
 
-class PodcastSerializer(ModelSerializer):
+class PodcastDetailSerializer(ModelSerializer):
     class Meta:
         model = Podcast
-        fields = ['uuid', 'cover_art', 'description', 'title', 'api_detail_url']
+        fields = ['uuid', 'cover_art', 'description', 'title']
+
+
+class PodcastListSerializer(ModelSerializer):
+    class Meta:
+        model = Podcast
+        fields = ['uuid', 'cover_art', 'title', 'api_detail_url']
 
 
 class PodcastViewSet(ReadOnlyModelViewSet):
@@ -19,13 +25,13 @@ class PodcastViewSet(ReadOnlyModelViewSet):
     API for Podcasts
     """
     queryset = Podcast.objects.all()
-    serializer_class = PodcastSerializer
+    serializer_class = PodcastListSerializer
     throttle_scope = "podcasts"
 
     def retrieve(self, request, *args, pk=None):
         queryset = self.get_queryset()
-        user = get_object_or_404(queryset, uuid=pk)
-        serializer = PodcastSerializer(user)
+        podcast = get_object_or_404(queryset, uuid=pk)
+        serializer = PodcastDetailSerializer(podcast)
         return Response(serializer.data)
 
     def throttled(self, request, wait):
